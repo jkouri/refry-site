@@ -8,7 +8,7 @@
     "build": "webpack -p --progress --colors"
   },
   "devDependencies": {
-    "@teachers/tpt-connect": "0.2.0-beta.9",
+    "@teachers/tpt-connect": "0.2.0-beta.10",
     "babel-core": "6.4.5",
     "babel-eslint": "5.0.0-beta6",
     "babel-loader": "6.2.1",
