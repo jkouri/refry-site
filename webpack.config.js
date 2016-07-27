@@ -4,16 +4,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ComponentResolverPlugin = require('component-resolver-webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const env = process.env.NODE_ENV || 'development';
+const isProduction = env === 'production';
+
+const entryPoints = [
+  path.join(__dirname, 'src', 'bootstrap'),
+  path.join(__dirname, 'src', 'style.scss')
+];
+
+isProduction && entryPoints
+  .unshift('webpack-dev-server/client?http://localhost:8080');
+
 module.exports = {
-  cache: true,
-  watch: true,
-  devtool: 'source-map',
+  devtool: isProduction ? 'cheap-module-source-map' : 'eval',
   entry: {
-    main: [
-      'webpack-dev-server/client?http://localhost:8080',
-      path.join(__dirname, 'src', 'bootstrap'),
-      path.join(__dirname, 'src', 'style.scss')
-    ],
+    main: entryPoints,
     vendor: [
       'react',
       'react-dom',
@@ -46,7 +51,10 @@ module.exports = {
     new webpack.ResolverPlugin([
       new ComponentResolverPlugin()
     ]),
-    new ExtractTextPlugin('style.css', { allChunks: true })
+    new ExtractTextPlugin('style.css', { allChunks: true }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(env)
+    })
   ],
   node: {
     fs: 'empty',
