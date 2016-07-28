@@ -11,11 +11,11 @@ const Header = () => (
         <TopNav 
           links={
             [
-                { label: "title1", link: '#title1' },
-                { label: "title2", link: '#title2' },
-                { label: "title3", link: '#title3' },
-                { label: "title4", link: '#title4' },
-                { label: "title5", link: '#title5' }
+                { label: "About", link: '#title1' },
+                { label: "Installation", link: '#title2' },
+                { label: "Usage", link: '#title3' },
+                { label: "Tutorial", link: '#title4' },
+                { label: "API", link: '#title5' }
             ]
           }
         />
