@@ -9,6 +9,10 @@ body {
   padding: 0;
 }
 
+.anchor {
+  padding-top: 45px;
+}
+
 .container {
   max-width: 930px;
   margin: 0 auto;
@@ -18,14 +22,17 @@ body {
     padding: 0 5px;
     line-height: 1.6;
     font-size: .9em;
-    code {
-      font-size: 1.3em;
-    }
   }
 }
 
-.no-padding {
+.CodeMirror-code {
+  font-size: 1em;
+}
+
+.container-fluid {
   padding: 0;
+  overflow: hidden;
+  max-width: none;
 }
 
 .intro {
@@ -60,7 +67,6 @@ body {
   background-color: white;
   left: 0;
   right: 0;
-  z-index: 3;
-
+  z-index: 7;
 }
 
